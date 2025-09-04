@@ -20,6 +20,7 @@ public class SeriesTest {
     public SeriesTest() {
     }
 
+    // Test searching for a series by valid ID
     @Test
     public void testSearchSeries() {
         SeriesModel result = series.findSeriesById("101");
@@ -27,12 +28,14 @@ public class SeriesTest {
         assertEquals("IT", result.getSeriesName());
     }
     
+    // Test searching for a series by invalid ID
     @Test
     public void testSearchSeries_SeriesnotFound() {
         SeriesModel result = series.findSeriesById("XYZ");
         assertNull(result, "Series should not be found");
     }
 
+    // Test updating series details
     @Test
     public void testUpdateSeries() {
         SeriesModel s = series.findSeriesById("101");
@@ -48,6 +51,7 @@ public class SeriesTest {
         assertEquals(25, updated.getSeriesNumberOfEpisodes());
     }
 
+    // Test deleting a series
     @Test
     public void testDeleteSeries() {
         SeriesModel s = series.findSeriesById("102");
@@ -58,6 +62,7 @@ public class SeriesTest {
         assertNull(deleted, "Series should have been deleted");
     }
     
+    // Test deleting a non-existent series
     @Test
     public void TestDeleteSeries_SeriesNotFound(){
         SeriesModel s = series.findSeriesById("XYZ");
@@ -66,18 +71,20 @@ public class SeriesTest {
         assertFalse(removed, "Removing non-existent series should return false");
     }
     
+    // Test age restriction validation (valid age)
     @Test
     public void testSeriesAgeRestriction_AgeValid() {
         SeriesModel result = new SeriesModel("S3", "The Simpsons", 10, 700);
         assertTrue(result.getSeriesAge() >= 2 && result.getSeriesAge() <= 18);
     }
     
+    // Test age restriction validation (invalid age)
     @Test
     public void TestSeriesAgeRestriction_SeriesAgeInValid() {
         SeriesModel result = new SeriesModel("S4", "Game of Thrones", 21, 73);
         assertFalse(result.getSeriesAge() >= 2 && result.getSeriesAge() <= 18);
     }
     
-    
+    //(Bechtold et al., 2025)
     
 }

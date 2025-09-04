@@ -47,6 +47,7 @@ public class SeriesModel {
         this.seriesNumberOfEpisodes = seriesNumberOfEpisodes;
     }
 
+    // Convert series details to readable string format
     @Override
     public String toString() {
         return "\nSERIES ID: " + seriesId +

@@ -7,17 +7,18 @@ public class TVSeries {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Series series = new Series();
+        Series series = new Series(); // Create an instance
 
         while (true) {
             System.out.println("\nLATEST SERIES 2025");
             System.out.println("Enter (1) to launch menu or any other key to exit");
 
             String option = scanner.nextLine();
-            if (!option.equals("1")) {
+            if (!option.equals("1")) {  // Exit loop
                 break;
             }
 
+            // Display menu options
             System.out.println("\nPlease select one of the following menu items:");
             System.out.println("(1) Capture a new series.");
             System.out.println("(2) Search for a series.");
@@ -28,6 +29,7 @@ public class TVSeries {
 
             option = scanner.nextLine();
 
+            // Handle user selection using switch-case
             switch (option) {
                 case "1": series.CaptureSeries(); break;
                 case "2": series.SearchSeries(); break;

@@ -42,7 +42,7 @@ public class Series {
             String input = scanner.nextLine();
             try {
                 age = Integer.parseInt(input);
-                if (age >= 2 && age <= 18) {
+                if (age >= 2 && age <= 18) { // Valid age range
                     valid = true;
                 } else {
                     System.out.println("You have entered an incorrect series age!!! Please re-enter the series age >>");
@@ -54,7 +54,7 @@ public class Series {
         return age;
     }
 
-    // 2. Search for a series
+    // 2. Search for a series by ID
     public void SearchSeries() {
         System.out.print("Enter the series id to search: ");
         String id = scanner.nextLine();
@@ -121,7 +121,7 @@ public class Series {
         System.out.println("Series with Series Id: " + id + " was not found!");
     }
 
-    // 5. Print series report
+    // 5. Print report of all series
     public void SeriesReport() {
         if (seriesList.isEmpty()) {
             System.out.println("No series available to display.");
